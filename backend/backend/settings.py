@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todo',
     'corsheaders',
-    'rest_framework'
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -104,9 +104,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #whitelist react port
-
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:5173'
+    'https://localhost:3000'
 )
 
 # Internationalization
