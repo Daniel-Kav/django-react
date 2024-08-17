@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheader.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -104,10 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #whitelist react port
-CORS_ORIGIN_WHITELIST = (
+CORS_ORIGIN_WHITELIST = [
     'https://localhost:3000'
-)
-
+]
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
