@@ -28,4 +28,4 @@ class DetailsView(DetailView):
 class CreateNotesView(CreateView):
     model = Notes
     fields = ['title', 'text']
-    
+    success_url = 'smart/notes'
