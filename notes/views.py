@@ -6,7 +6,8 @@ from django.views.generic import ListView
 # Create your views here.
 class NotesListView(ListView):
     model = Notes
-    context_object_name = 'notes'
+    context_object_name = 'all_notes'
+    template_name = 'notes/notes_list.html'
 
 # def notes(request):
 #     all_notes = Notes.objects.all()
