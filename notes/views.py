@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Notes
 from django.http import Http404
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 
 # Create your views here.
 class NotesListView(ListView):
@@ -13,9 +13,14 @@ class NotesListView(ListView):
 #     all_notes = Notes.objects.all()
 #     return render(request, 'notes/notes_list.html', {'all_notes': all_notes})
 
-def details(request, pk):
-    try:
-        note = Notes.objects.get(pk=pk)
-    except Notes.DoesNotExist:
-        raise Http404("Note Not Found")
-    return render(request, 'notes/note_details.html', {'note': note})
+class DetailsView(DetailView):
+    model = Notes
+    context_object_name = 'note'
+    template_name='notes/note_details.html'
+
+# def details(request, pk):
+#     try:
+#         note = Notes.objects.get(pk=pk)
+#     except Notes.DoesNotExist:
+#         raise Http404("Note Not Found")
+#     return render(request, 'notes/note_details.html', {'note': note})
