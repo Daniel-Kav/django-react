@@ -1,13 +1,12 @@
-{% load static %}
+{% extends "base.html" %}
 
-<html>
-    <header>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    </header>
-    <h1>
-        this  is the notes list
-    </h1>
+{% block content %}
+<h1>
+    This is the notes list
+</h1>
+<ul>
     {% for note in all_notes %}
-        <li class="note-li">{{note.title}}</li>
+    <li class="note-li">{{ note.title }}</li>
     {% endfor %}
-</html>
+</ul>
+{% endblock %}
