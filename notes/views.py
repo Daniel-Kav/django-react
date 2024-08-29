@@ -5,3 +5,7 @@ from .models import Notes
 def notes(request):
     all_notes = Notes.objects.all()
     return render(request, 'notes/notes_list.html', {'all_notes': all_notes})
+
+def details(request, pk):
+    note = Notes.objects.get(pk=pk)
+    return render(request, 'notes/details.html', {'note': note})
