@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<header>
-    <title>
-        DantyNotes!!
-    </title>
-</header>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <h1>
         danty linked list learner course
     </h1>
     <h4>today is {{today}}</h4>
-</body>
-</html>
+
+    <a href="{% url %}" class="btn btn-primary ">Available Notes</a>
+
+{% endblock %}
