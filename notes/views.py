@@ -8,4 +8,4 @@ def notes(request):
 
 def details(request, pk):
     note = Notes.objects.get(pk=pk)
-    return render(request, 'notes/details.html', {'note': note})
+    return render(request, 'notes/note_details.html', {'note': note})
