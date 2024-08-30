@@ -4,6 +4,8 @@
     <div class="border round">
         <h1 class="my-5">{{note.title}}</h1>
         <p>{{note.text}}</p>
+        <a href="{% url 'notes.list' %}" class="btn btn-secondary mb-5">BACK</a>
+        <a href="{% url 'notes.update' pk=note.id %}" class="btn btn-secondary mb-5">EDIT</a>
     </div>
 
 {% endblock %}
