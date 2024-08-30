@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import Notes
 from django.http import Http404
 from django.views.generic import ListView,DetailView, CreateView
@@ -25,7 +26,13 @@ class DetailsView(DetailView):
 #         raise Http404("Note Not Found")
 #     return render(request, 'notes/note_details.html', {'note': note})
 
-class CreateNotesView(CreateView):
+# class NotesCreateView(CreateView):
+#     model = Notes
+#     fields = ['title', 'text']
+#     success_url = 'smart/notes'
+
+
+class NotesCreateView(CreateView):
     model = Notes
     fields = ['title', 'text']
-    success_url = 'smart/notes'
+    success_url = reverse_lazy('notes.list')

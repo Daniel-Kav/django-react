@@ -2,7 +2,8 @@
 
 {% block content %}
 
-<form action="{% url 'notes.create' } " method="POST">{%  csrf_token %}
+<form action="{% url 'notes.create' %}" method="POST">
+    {% csrf_token %}
     {{ form }}
     <button type="submit" class="btn btn-outline-info">Submit</button>
 </form>
