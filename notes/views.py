@@ -38,3 +38,8 @@ class NotesUpdateView(UpdateView):
     model = Notes
     success_url = reverse_lazy('notes.list')
     form_class = NotesForm
+
+class NotesDeleteView(DeleteView):
+    model = Notes
+    success_url = reverse_lazy('notes.list')
+    template_name = 'notes/notes_delete.html'
