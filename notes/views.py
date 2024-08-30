@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from .models import Notes
 from django.http import Http404
-from django.views.generic import ListView,DetailView, CreateView
+from django.views.generic import ListView,DetailView, CreateView,UpdateView, DeleteView
 from .forms import NotesForm
 
 # Create your views here.
@@ -30,6 +30,11 @@ class DetailsView(DetailView):
 
 
 class NotesCreateView(CreateView):
+    model = Notes
+    success_url = reverse_lazy('notes.list')
+    form_class = NotesForm
+
+class NotesUpdateView(UpdateView):
     model = Notes
     success_url = reverse_lazy('notes.list')
     form_class = NotesForm
