@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView,LogoutView
+from django.views.generic import CreateView
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
 
 class LoginInterfaceView(LoginView):
     template_name = 'home/login.html'
@@ -26,3 +29,8 @@ class AuthorizedView(LoginRequiredMixin,TemplateView):
 # @login_required(login_url='/admin')
 # def authorized(request):
 #     return render(request , 'home/authorized.html', {})
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'home/register.html'
+    success_url = reverse_lazy('notes.list')
