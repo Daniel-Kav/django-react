@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<form action="" method="post">
-    <h3>Hate to see you Leave 😥😥😥</h3>
-</form>
-
+<div class="container">
+    <h1>You have been logged out</h1>
+    <p>Thank you for visiting. We hope to see you again soon.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary">Login Again</a>
+</div>
 {% endblock %}
