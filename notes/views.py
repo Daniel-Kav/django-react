@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.http.response import HttpResponseRedirect
 from .models import Notes
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView,DetailView, CreateView,UpdateView, DeleteView
@@ -13,7 +14,7 @@ class NotesListView(LoginRequiredMixin,ListView):
     login_url = '/admin'
 
     def get_queryset(self):
-        return self.user.notes.all()
+        return self.request.user.notes.all()
 
 # def notes(request):
 #     all_notes = Notes.objects.all()
@@ -39,7 +40,10 @@ class NotesCreateView(CreateView):
     form_class = NotesForm
 
     def form_valid(self, form):
-        
+        self.object = form.save( commit= False)
+        self.object.user = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 class NotesUpdateView(UpdateView):
     model = Notes
