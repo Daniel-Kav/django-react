@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('/', views.index, name='post'),
-    path('/', views.likepost, name='likepost'),
+    path('/', views.index, name='index'),
+    path('/likepost', views.likepost, name='likepost'),
 ]
