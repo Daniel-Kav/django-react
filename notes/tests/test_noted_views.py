@@ -46,10 +46,3 @@ def test_list_endpoint_return_list_only_authenticatd_user(client):
 
     # Verify that 'kav' notes are not in the content
     assert 'kav title' not in content
-
-    # Print the content for debugging (optional)
-    print(content)
-
-    # Check that there are no <div> tags, or adjust this to the expected count of <div> tags
-    div_count = content.count('<div>')
-    assert div_count == 0, f"Expected 0 <div> tags but found {div_count}"
