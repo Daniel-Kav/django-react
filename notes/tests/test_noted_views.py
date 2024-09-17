@@ -1,11 +1,13 @@
 import pytest
 from django.contrib.auth.models import User
 from notes.models import Notes
+from .factories import UserFactory
 
 @pytest.fixture
 def logged_user(client):
-    userr = User.objects.create_user('kavatha', 'admin@gmail.com', 'django1234')
-    client.login(username = userr.username, password='django1234')
+    # userr = User.objects.create_user('kavatha', 'admin@gmail.com', 'django1234')
+    userr = UserFactory()
+    client.login(username = userr.username, password='password')
     return userr
 
 @pytest.mark.django_db
